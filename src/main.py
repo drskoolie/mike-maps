@@ -5,5 +5,8 @@ import pandas as pd
 data_directory = 'data/raw/pollbypoll_bureauparbureauCanada/'
 polls = os.listdir(data_directory)
 for poll in polls:
-    print(poll)
-pd.read_csv('data/raw/pollbypoll_bureauparbureauCanada/pollbypoll_bureauparbureau10001.csv')
+    if poll[:5] != 'table':
+        print(poll)
+
+df = pd.read_csv(data_directory + polls[0])
+df
