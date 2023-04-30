@@ -5,8 +5,8 @@ import pandas as pd
 data_directory = "data/raw/pollbypoll_bureauparbureauCanada/"
 polls = os.listdir(data_directory)
 
-## Part 1: Column Renaming
 
+## Part 1: Column Renaming
 df = pd.read_csv(data_directory + polls[0])
 
 columns_original = [
@@ -32,6 +32,10 @@ columns_condensed = [
 columns_dict = dict(zip(columns_original, columns_condensed))
 df = df.rename(columns=columns_dict)
 df = df.rename(str.lower, axis='columns')
+
+df.columns
+
+df.iloc[:,5].sum()
 
 # Part 2: Iterating
 for poll in polls:
